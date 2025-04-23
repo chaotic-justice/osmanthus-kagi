@@ -82,16 +82,16 @@ export const seed = async ({
 
   const [image1Buffer, image2Buffer, image3Buffer, hero1Buffer] = await Promise.all([
     fetchFileByURL(
-      'https://raw.githubusercontent.com/payloadcms/payload/refs/heads/main/templates/website/src/endpoints/seed/image-post1.webp',
+      'https://image.lichess1.org/display?fmt=webp&h=550&op=thumbnail&path=ublog:jrQwk3bE:gsbxhnlf.webp&w=880&sig=75a1433cb9b0456e41eda4391880bf001ba1872b',
     ),
     fetchFileByURL(
-      'https://raw.githubusercontent.com/payloadcms/payload/refs/heads/main/templates/website/src/endpoints/seed/image-post2.webp',
+      'https://image.lichess1.org/display?fmt=webp&h=550&op=thumbnail&path=ublog:1Icnfvl2:3CQhx2uv.webp&w=880&sig=aff3f205b65e40f7a5661a9bb0c04a83722a632a',
     ),
     fetchFileByURL(
-      'https://raw.githubusercontent.com/payloadcms/payload/refs/heads/main/templates/website/src/endpoints/seed/image-post3.webp',
+      'https://lh7-rt.googleusercontent.com/docsz/AD_4nXeo94z2PLbMy0rloL17jVJAgckS5vtMRuml1WpizDV-vVj0RljjkJtRvs5kLul51Borztx54duOQAJqaQN92m791M1Kd8fHPGtZD5oHVFFUz-F0bb2FCHhDhKz3wx7RHubLmASBd3RbcXjfKt_K0yfJoTc?key=gsc-k9cEScznbHHyFZ8uow',
     ),
     fetchFileByURL(
-      'https://raw.githubusercontent.com/payloadcms/payload/refs/heads/main/templates/website/src/endpoints/seed/image-hero1.webp',
+      'https://image.lichess1.org/display?fmt=webp&h=550&op=thumbnail&path=ublog:VaiIgfdX:AmhrpEVl.webp&w=880&sig=66e2cd9379ba5f1cafcc5c93b7367e3b19c3b076',
     ),
   ])
 
