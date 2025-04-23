@@ -38,8 +38,8 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
   if (!src && resource && typeof resource === 'object') {
     const { alt: altFromResource, height: fullHeight, url, width: fullWidth } = resource
 
-    width = fullWidth!
-    height = fullHeight!
+    width = fullWidth! || 800
+    height = fullHeight! || 600
     alt = altFromResource || ''
 
     const cacheTag = resource.updatedAt

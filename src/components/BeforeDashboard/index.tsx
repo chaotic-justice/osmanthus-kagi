@@ -3,6 +3,7 @@ import React from 'react'
 
 import { SeedButton } from './SeedButton'
 import './index.scss'
+import { ResetButton } from './ResetButton'
 
 const baseClass = 'before-dashboard'
 
@@ -21,6 +22,10 @@ const BeforeDashboard: React.FC = () => {
             visit your website
           </a>
           {' to see the results.'}
+        </li>
+        <li>
+          <ResetButton />
+          {' to clear the database and start fresh. This will remove all content, so be careful! '}
         </li>
         <li>
           If you created this repo using Payload Cloud, head over to GitHub and clone it to your
