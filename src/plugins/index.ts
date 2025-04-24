@@ -68,11 +68,7 @@ export const plugins: Plugin[] = [
               ...field,
               editor: lexicalEditor({
                 features: ({ rootFeatures }) => {
-                  return [
-                    ...rootFeatures,
-                    FixedToolbarFeature(),
-                    HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
-                  ]
+                  return [...rootFeatures, FixedToolbarFeature()]
                 },
               }),
             }
