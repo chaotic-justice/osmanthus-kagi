@@ -73,7 +73,7 @@ export const seed = async ({
     depth: 0,
     where: {
       email: {
-        equals: 'demo-author@example.com',
+        equals: 'octopus@lichess.org',
       },
     },
   })
@@ -100,8 +100,8 @@ export const seed = async ({
       collection: 'users',
       data: {
         name: 'Demo Author',
-        email: 'demo-author@example.com',
-        password: 'password',
+        email: 'octopus@lichess.org',
+        password: process.env.NEXT_PUBLIC_DUMMY_PASSWORD,
       },
     }),
     payload.create({

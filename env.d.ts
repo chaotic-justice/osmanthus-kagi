@@ -12,6 +12,8 @@ declare global {
       S3_SECRET_ACCESS_KEY: string;
       S3_ENDPOINT: string;
       RESEND_API: string;
+      NEXT_PUBLIC_ENABLE_AUTOLOGIN: string;
+      NEXT_PUBLIC_DUMMY_PASSWORD: string;
     }
   }
 }
