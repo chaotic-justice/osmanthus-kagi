@@ -4,11 +4,14 @@ import { cn } from '@/utilities/ui'
 import React from 'react'
 import RichText from '@/components/RichText'
 
-import type { MediaBlock as MediaBlockProps } from '@/payload-types'
+import type {
+  MediaBlock as MediaBlockProps,
+  GalleryBlock as GalleryBlockProps,
+} from '@/payload-types'
 
 import { Media } from '../../components/Media'
 
-type Props = MediaBlockProps & {
+type Props = Omit<MediaBlockProps, 'blockType'> & {
   breakout?: boolean
   captionClassName?: string
   className?: string
@@ -16,6 +19,7 @@ type Props = MediaBlockProps & {
   imgClassName?: string
   staticImage?: StaticImageData
   disableInnerContainer?: boolean
+  blockType: MediaBlockProps['blockType'] | GalleryBlockProps['blockType']
 }
 
 export const MediaBlock: React.FC<Props> = (props) => {
