@@ -3,7 +3,6 @@ import type { CollectionConfig } from 'payload'
 import {
   BlocksFeature,
   FixedToolbarFeature,
-  HeadingFeature,
   HorizontalRuleFeature,
   InlineToolbarFeature,
   lexicalEditor,
@@ -18,6 +17,8 @@ import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { populateAuthors } from './hooks/populateAuthors'
 import { revalidateDelete, revalidatePost } from './hooks/revalidatePost'
 
+import { GalleryBlock } from '@/blocks/GalleryBlock/config'
+import { slugField } from '@/fields/slug'
 import {
   MetaDescriptionField,
   MetaImageField,
@@ -25,8 +26,6 @@ import {
   OverviewField,
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
-import { slugField } from '@/fields/slug'
-import { GalleryBlock } from '@/blocks/GalleryBlock/config'
 
 export const Posts: CollectionConfig<'posts'> = {
   slug: 'posts',

@@ -10,7 +10,6 @@ export const GalleryBlock: Block = {
       relationTo: 'media',
       hasMany: true,
       required: true,
-      // maxDepth: 2,
     },
   ],
 }
