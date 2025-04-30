@@ -1,11 +1,10 @@
 import type { Metadata } from 'next/types'
 
-import { CollectionArchive } from '@/components/CollectionArchive'
+import { WorkingCollectionArchive } from '@/components/CollectionArchive'
 import { PageRange } from '@/components/PageRange'
 import { Pagination } from '@/components/Pagination'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
-import React from 'react'
 import PageClient from './page.client'
 
 export const dynamic = 'force-static'
@@ -45,7 +44,7 @@ export default async function Page() {
         />
       </div>
 
-      <CollectionArchive works={works.docs} />
+      <WorkingCollectionArchive works={works.docs} />
 
       <div className="container">
         {works.totalPages > 1 && works.page && (
