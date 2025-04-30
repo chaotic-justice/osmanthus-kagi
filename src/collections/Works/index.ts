@@ -80,11 +80,6 @@ export const Works: CollectionConfig<'works'> = {
         {
           fields: [
             {
-              name: 'heroImage',
-              type: 'upload',
-              relationTo: 'media',
-            },
-            {
               name: 'content',
               type: 'richText',
               editor: lexicalEditor({

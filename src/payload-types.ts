@@ -737,7 +737,6 @@ export interface Form {
 export interface Work {
   id: string;
   title: string;
-  heroImage?: (string | null) | Media;
   content: {
     root: {
       type: string;
@@ -1207,7 +1206,6 @@ export interface PostsSelect<T extends boolean = true> {
  */
 export interface WorksSelect<T extends boolean = true> {
   title?: T;
-  heroImage?: T;
   content?: T;
   relatedPosts?: T;
   categories?: T;
