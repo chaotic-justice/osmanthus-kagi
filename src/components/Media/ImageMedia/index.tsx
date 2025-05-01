@@ -69,6 +69,8 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
         quality={100}
         loading={loading}
         sizes={sizes}
+        // @ts-expect-error loaders are not typed
+        loader={() => src}
         src={src}
         width={!fill ? width : undefined}
       />
