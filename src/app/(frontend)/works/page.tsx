@@ -29,21 +29,6 @@ export default async function Page() {
   return (
     <div className="pt-24 pb-24">
       <PageClient />
-      <div className="container mb-16">
-        <div className="prose dark:prose-invert max-w-none">
-          <h1>Works</h1>
-        </div>
-      </div>
-
-      <div className="container mb-8">
-        <PageRange
-          collection="works"
-          currentPage={works.page}
-          limit={12}
-          totalDocs={works.totalDocs}
-        />
-      </div>
-
       <WorkingCollectionArchive works={works.docs} />
 
       <div className="container">
