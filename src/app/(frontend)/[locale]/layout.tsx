@@ -13,12 +13,12 @@ import { InitTheme } from '@/providers/Theme/InitTheme'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { draftMode } from 'next/headers'
 
-import './globals.css'
-import { getServerSideURL } from '@/utilities/getURL'
-import { TypedLocale } from 'payload'
 import { routing } from '@/i18n/routing'
-import { hasLocale, NextIntlClientProvider } from 'next-intl'
+import { getServerSideURL } from '@/utilities/getURL'
+import { hasLocale } from 'next-intl'
 import { notFound } from 'next/navigation'
+import { TypedLocale } from 'payload'
+import './globals.css'
 
 type Args = {
   children: React.ReactNode
@@ -27,9 +27,9 @@ type Args = {
   }>
 }
 
-// export function generateStaticParams() {
-//   return routing.locales.map((locale) => ({ locale }))
-// }
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }))
+}
 
 export default async function RootLayout({ children, params }: Args) {
   const { isEnabled } = await draftMode()
@@ -58,7 +58,7 @@ export default async function RootLayout({ children, params }: Args) {
           />
 
           <Header />
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          {children}
           <Footer />
         </Providers>
       </body>
