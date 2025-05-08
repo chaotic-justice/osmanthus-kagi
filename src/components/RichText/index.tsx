@@ -10,11 +10,13 @@ import {
   JSXConvertersFunction,
   LinkJSXConverter,
 } from '@payloadcms/richtext-lexical/react'
+import { TypographyJSXConverters } from 'payload-lexical-typography/converters'
 
 import { CodeBlock, CodeBlockProps } from '@/blocks/Code/Component'
 
 import { BannerBlock } from '@/blocks/Banner/Component'
 import { CallToActionBlock } from '@/blocks/CallToAction/Component'
+import { GalleryBlock } from '@/blocks/GalleryBlock/Component'
 import type {
   BannerBlock as BannerBlockProps,
   CallToActionBlock as CTABlockProps,
@@ -22,8 +24,6 @@ import type {
   MediaBlock as MediaBlockProps,
 } from '@/payload-types'
 import { cn } from '@/utilities/ui'
-import { Fragment } from 'react'
-import { GalleryBlock } from '@/blocks/GalleryBlock/Component'
 
 type NodeTypes =
   | DefaultNodeTypes
@@ -42,6 +42,7 @@ const internalDocToHref = ({ linkNode }: { linkNode: SerializedLinkNode }) => {
 
 const jsxConverters: JSXConvertersFunction<NodeTypes> = ({ defaultConverters }) => ({
   ...defaultConverters,
+  ...TypographyJSXConverters,
   ...LinkJSXConverter({ internalDocToHref }),
   blocks: {
     banner: ({ node }) => <BannerBlock className="col-start-2 mb-4" {...node.fields} />,
