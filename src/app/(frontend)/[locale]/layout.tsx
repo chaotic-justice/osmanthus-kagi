@@ -15,12 +15,35 @@ import { draftMode } from 'next/headers'
 
 import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
+import { TypedLocale } from 'payload'
+import { routing } from '@/i18n/routing'
+import { hasLocale, NextIntlClientProvider } from 'next-intl'
+import { notFound } from 'next/navigation'
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
+type Args = {
+  children: React.ReactNode
+  params: Promise<{
+    locale: TypedLocale
+  }>
+}
+
+// export function generateStaticParams() {
+//   return routing.locales.map((locale) => ({ locale }))
+// }
+
+export default async function RootLayout({ children, params }: Args) {
   const { isEnabled } = await draftMode()
+  const { locale } = await params
+  if (!hasLocale(routing.locales, locale)) {
+    notFound()
+  }
 
   return (
-    <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
+    <html
+      className={cn(GeistSans.variable, GeistMono.variable)}
+      lang={locale}
+      suppressHydrationWarning
+    >
       <head>
         <InitTheme />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
@@ -35,7 +58,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           />
 
           <Header />
-          {children}
+          <NextIntlClientProvider>{children}</NextIntlClientProvider>
           <Footer />
         </Providers>
       </body>
@@ -48,6 +71,6 @@ export const metadata: Metadata = {
   openGraph: mergeOpenGraph(),
   twitter: {
     card: 'summary_large_image',
-    creator: '@payloadcms',
+    creator: '@cdplayer',
   },
 }
