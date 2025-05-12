@@ -1,12 +1,14 @@
 'use client'
 import { useHeaderTheme } from '@/providers/HeaderTheme'
-import { usePathname } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
+
+import { usePathname } from '@/i18n/navigation'
+import Link from 'next/link'
 
 import type { Header } from '@/payload-types'
 
 import { Logo } from '@/components/Logo/Logo'
-import { Link } from '@/i18n/navigation'
+import { LocaleSwitcher } from './LocaleSwitcher'
 import { HeaderNav } from './Nav'
 
 interface HeaderClientProps {
@@ -35,6 +37,8 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
         <Link href="/">
           <Logo loading="eager" priority="high" className="invert dark:invert-0" />
         </Link>
+        <LocaleSwitcher />
+        {/* <PublicNavigationLocaleSwitcher /> */}
         <HeaderNav data={data} />
       </div>
     </header>

@@ -2,8 +2,9 @@ import { Button, type ButtonProps } from '@/components/ui/button'
 import { cn } from '@/utilities/ui'
 import React from 'react'
 
+import { Link as i18nLink } from '@/i18n/navigation'
 import type { Page, Post } from '@/payload-types'
-import Link from 'next/link'
+import NextLink from 'next/link'
 
 type CMSLinkType = {
   appearance?: 'inline' | ButtonProps['variant']
@@ -41,6 +42,7 @@ export const CMSLink: React.FC<CMSLinkType> = (props) => {
       : url
 
   if (!href) return null
+  const Link = href.startsWith('/admin') ? NextLink : i18nLink
 
   const size = appearance === 'link' ? 'clear' : sizeFromProps
   const newTabProps = newTab ? { rel: 'noopener noreferrer', target: '_blank' } : {}

@@ -17,7 +17,7 @@ import { routing } from '@/i18n/routing'
 import { getServerSideURL } from '@/utilities/getURL'
 import { hasLocale } from 'next-intl'
 import { notFound } from 'next/navigation'
-import { TypedLocale } from 'payload'
+import { type TypedLocale } from 'payload'
 import './globals.css'
 
 type Args = {

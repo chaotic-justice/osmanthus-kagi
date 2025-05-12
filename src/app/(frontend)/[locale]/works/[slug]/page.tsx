@@ -56,7 +56,7 @@ export default async function Work({ params: paramsPromise }: Args) {
 
       {/* <WorkHero work={work} /> */}
 
-      <div className="flex flex-col items-center gap-4 pt-8">
+      <div className="flex flex-col items-center gap-4 sm:pt-8">
         <div className="container">
           <RichText className="max-w-[48rem] mx-auto" data={work.content} enableGutter={false} />
           {/* {work.relatedWorks && work.relatedWorks.length > 0 && (
