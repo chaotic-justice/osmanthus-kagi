@@ -2,8 +2,7 @@
 import { useHeaderTheme } from '@/providers/HeaderTheme'
 import React, { useEffect, useState } from 'react'
 
-import { usePathname } from '@/i18n/navigation'
-import Link from 'next/link'
+import { Link, usePathname } from '@/i18n/navigation'
 
 import type { Header } from '@/payload-types'
 
