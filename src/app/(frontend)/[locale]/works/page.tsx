@@ -8,7 +8,7 @@ import { getPayload, type TypedLocale } from 'payload'
 import PageClient from './page.client'
 
 // export const dynamic = 'force-static'
-export const revalidate = 600
+// export const revalidate = 600
 
 type Args = {
   params: Promise<{

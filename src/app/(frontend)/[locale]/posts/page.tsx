@@ -7,7 +7,7 @@ import configPromise from '@payload-config'
 import { getPayload, type TypedLocale } from 'payload'
 import PageClient from './page.client'
 
-export const revalidate = 600
+// export const revalidate = 600
 
 type Args = {
   params: Promise<{
