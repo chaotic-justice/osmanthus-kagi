@@ -42,7 +42,7 @@ export const ResetButton: React.FC = () => {
         toast.promise(
           new Promise((resolve, reject) => {
             try {
-              fetch('/next/reset', { method: 'POST', credentials: 'include' })
+              fetch('/api/reset', { method: 'POST', credentials: 'include' })
                 .then((res) => {
                   if (res.ok) {
                     resolve(true)

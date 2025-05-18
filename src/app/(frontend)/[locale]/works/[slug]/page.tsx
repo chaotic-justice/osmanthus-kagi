@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { PayloadRedirects } from '@/components/PayloadRedirects'
 import configPromise from '@payload-config'
 import { draftMode } from 'next/headers'
-import { getPayload } from 'payload'
+import { getPayload, type TypedLocale } from 'payload'
 import { cache } from 'react'
 
 import { LivePreviewListener } from '@/components/LivePreviewListener'
@@ -34,14 +34,15 @@ export async function generateStaticParams() {
 type Args = {
   params: Promise<{
     slug?: string
+    locale?: TypedLocale
   }>
 }
 
 export default async function Work({ params: paramsPromise }: Args) {
   const { isEnabled: draft } = await draftMode()
-  const { slug = '' } = await paramsPromise
+  const { slug = '', locale = 'en' } = await paramsPromise
   const url = '/works/' + slug
-  const work = await queryWorkBySlug({ slug })
+  const work = await queryWorkBySlug({ slug, locale })
 
   if (!work) return <PayloadRedirects url={url} />
 
@@ -72,13 +73,13 @@ export default async function Work({ params: paramsPromise }: Args) {
 }
 
 export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
-  const { slug = '' } = await paramsPromise
-  const work = await queryWorkBySlug({ slug })
+  const { slug = '', locale = 'en' } = await paramsPromise
+  const work = await queryWorkBySlug({ slug, locale })
 
   return generateMeta({ doc: work })
 }
 
-const queryWorkBySlug = cache(async ({ slug }: { slug: string }) => {
+const queryWorkBySlug = cache(async ({ slug, locale }: { slug: string; locale: TypedLocale }) => {
   const { isEnabled: draft } = await draftMode()
 
   const payload = await getPayload({ config: configPromise })
@@ -87,6 +88,7 @@ const queryWorkBySlug = cache(async ({ slug }: { slug: string }) => {
     collection: 'works',
     draft,
     limit: 1,
+    locale,
     overrideAccess: draft,
     pagination: false,
     where: {

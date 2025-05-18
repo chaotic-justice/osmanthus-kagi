@@ -42,19 +42,22 @@ export const SeedButton: React.FC = () => {
         toast.promise(
           new Promise((resolve, reject) => {
             try {
-              fetch('/next/seed', { method: 'POST', credentials: 'include' })
+              fetch('/api/seed', { method: 'POST', credentials: 'include' })
                 .then((res) => {
                   if (res.ok) {
                     resolve(true)
                     setSeeded(true)
                   } else {
+                    console.log('res', res)
                     reject('An error occurred while seeding.')
                   }
                 })
                 .catch((error) => {
+                  console.log('error', error)
                   reject(error)
                 })
             } catch (error) {
+              console.log('error', error)
               reject(error)
             }
           }),
@@ -65,6 +68,7 @@ export const SeedButton: React.FC = () => {
           },
         )
       } catch (err) {
+        console.log('err', err)
         const error = err instanceof Error ? err.message : String(err)
         setError(error)
       }

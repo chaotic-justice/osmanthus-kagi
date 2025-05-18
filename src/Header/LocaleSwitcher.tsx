@@ -1,5 +1,5 @@
 'use client'
-import { useState, useTransition } from 'react'
+import { useTransition } from 'react'
 
 import {
   Select,
@@ -12,25 +12,8 @@ import localization from '@/i18n/localization'
 import { usePathname, useRouter } from '@/i18n/navigation'
 import { useParams } from 'next/navigation'
 
+import { useLocale } from 'next-intl'
 import type { TypedLocale } from 'payload'
-import { useLocale, useTranslations } from 'next-intl'
-import LocaleSwitcherSelect from './LocaleSwitcherSelect'
-import { routing } from '@/i18n/routing'
-
-// export function LocaleSwitcher() {
-//   const t = useTranslations('LocaleSwitcher')
-//   const locale = useLocale()
-
-//   return (
-//     <LocaleSwitcherSelect defaultValue={locale} label={t('label')}>
-//       {routing.locales.map((cur) => (
-//         <option key={cur} value={cur}>
-//           {t('locale', { locale: cur })}
-//         </option>
-//       ))}
-//     </LocaleSwitcherSelect>
-//   )
-// }
 
 export function LocaleSwitcher() {
   const locale = useLocale()
@@ -40,7 +23,6 @@ export function LocaleSwitcher() {
   const params = useParams()
 
   function onSelectChange(value: TypedLocale | string) {
-    // setSelectedLocale(value)
     startTransition(() => {
       router.replace(
         // @ts-expect-error -- TypeScript will validate that only known `params`

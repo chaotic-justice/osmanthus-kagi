@@ -21,6 +21,8 @@ import { Footer } from './Footer/config'
 import { Header } from './Header/config'
 import { plugins } from './plugins'
 import { getServerSideURL } from './utilities/getURL'
+import { POST as seedHandler } from './app/(frontend)/[locale]/next/seed/route'
+import { POST as resetHandler } from './app/(frontend)/[locale]/next/reset/route'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -73,6 +75,10 @@ export default buildConfig({
   i18n: {
     supportedLanguages: { en, ja, zh },
   },
+  localization: {
+    locales: ['en', 'ja', 'zh'],
+    defaultLocale: 'en',
+  },
   // This config helps us configure global or default features that the other editors can inherit
   editor: defaultLexical,
   email: resendAdapter({
@@ -85,6 +91,18 @@ export default buildConfig({
   }),
   collections: [Pages, Posts, Works, Media, Categories, Users],
   cors: [getServerSideURL()].filter(Boolean),
+  endpoints: [
+    {
+      method: 'post',
+      path: '/seed',
+      handler: seedHandler,
+    },
+    {
+      method: 'post',
+      path: '/reset',
+      handler: resetHandler,
+    },
+  ],
   globals: [Header, Footer],
   plugins: [
     ...plugins,

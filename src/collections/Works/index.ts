@@ -72,6 +72,7 @@ export const Works: CollectionConfig<'works'> = {
     {
       name: 'title',
       type: 'text',
+      localized: true,
       required: true,
     },
     {
@@ -82,6 +83,7 @@ export const Works: CollectionConfig<'works'> = {
             {
               name: 'content',
               type: 'richText',
+              localized: true,
               editor: lexicalEditor({
                 features: ({ rootFeatures }) => {
                   return [

@@ -107,26 +107,31 @@ export const seed = async ({
     payload.create({
       collection: 'media',
       data: image1,
+      locale: 'en',
       file: image1Buffer,
     }),
     payload.create({
       collection: 'media',
       data: image2,
+      locale: 'en',
       file: image2Buffer,
     }),
     payload.create({
       collection: 'media',
       data: image2,
+      locale: 'en',
       file: image3Buffer,
     }),
     payload.create({
       collection: 'media',
       data: imageHero1,
+      locale: 'en',
       file: hero1Buffer,
     }),
 
     payload.create({
       collection: 'categories',
+      locale: 'en',
       data: {
         title: 'Technology',
         breadcrumbs: [
@@ -140,6 +145,7 @@ export const seed = async ({
 
     payload.create({
       collection: 'categories',
+      locale: 'en',
       data: {
         title: 'News',
         breadcrumbs: [
@@ -153,6 +159,7 @@ export const seed = async ({
 
     payload.create({
       collection: 'categories',
+      locale: 'en',
       data: {
         title: 'Finance',
         breadcrumbs: [
@@ -165,6 +172,7 @@ export const seed = async ({
     }),
     payload.create({
       collection: 'categories',
+      locale: 'en',
       data: {
         title: 'Design',
         breadcrumbs: [
@@ -178,6 +186,7 @@ export const seed = async ({
 
     payload.create({
       collection: 'categories',
+      locale: 'en',
       data: {
         title: 'Software',
         breadcrumbs: [
@@ -191,6 +200,7 @@ export const seed = async ({
 
     payload.create({
       collection: 'categories',
+      locale: 'en',
       data: {
         title: 'Engineering',
         breadcrumbs: [
@@ -214,6 +224,7 @@ export const seed = async ({
       disableRevalidate: true,
     },
     data: post1({ heroImage: image1Doc, blockImage: image2Doc, author: demoAuthor }),
+    locale: 'en',
   })
 
   const post2Doc = await payload.create({
@@ -223,6 +234,7 @@ export const seed = async ({
       disableRevalidate: true,
     },
     data: post2({ heroImage: image2Doc, blockImage: image3Doc, author: demoAuthor }),
+    locale: 'en',
   })
 
   const post3Doc = await payload.create({
@@ -232,6 +244,7 @@ export const seed = async ({
       disableRevalidate: true,
     },
     data: post3({ heroImage: image3Doc, blockImage: image1Doc, author: demoAuthor }),
+    locale: 'en',
   })
 
   // update each post with related posts
@@ -261,6 +274,7 @@ export const seed = async ({
 
   const contactForm = await payload.create({
     collection: 'forms',
+    locale: 'en',
     depth: 0,
     data: contactFormData,
   })
@@ -270,11 +284,13 @@ export const seed = async ({
   const [_, contactPage] = await Promise.all([
     payload.create({
       collection: 'pages',
+      locale: 'en',
       depth: 0,
       data: home({ heroImage: imageHomeDoc, metaImage: image2Doc }),
     }),
     payload.create({
       collection: 'pages',
+      locale: 'en',
       depth: 0,
       data: contactPageData({ contactForm: contactForm }),
     }),
@@ -285,6 +301,7 @@ export const seed = async ({
   await Promise.all([
     payload.updateGlobal({
       slug: 'header',
+      locale: 'en',
       data: {
         navItems: [
           {
@@ -309,6 +326,7 @@ export const seed = async ({
     }),
     payload.updateGlobal({
       slug: 'footer',
+      locale: 'en',
       data: {
         navItems: [
           {

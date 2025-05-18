@@ -4,14 +4,24 @@ import { CollectionArchive } from '@/components/CollectionArchive'
 import { PageRange } from '@/components/PageRange'
 import { Pagination } from '@/components/Pagination'
 import configPromise from '@payload-config'
-import { getPayload } from 'payload'
+import { getPayload, type TypedLocale } from 'payload'
 import PageClient from './page.client'
 
-export default async function Page() {
+export const revalidate = 600
+
+type Args = {
+  params: Promise<{
+    locale: TypedLocale
+  }>
+}
+
+export default async function Page({ params }: Args) {
+  const { locale = 'en' } = await params
   const payload = await getPayload({ config: configPromise })
 
   const posts = await payload.find({
     collection: 'posts',
+    locale,
     depth: 1,
     limit: 12,
     overrideAccess: false,

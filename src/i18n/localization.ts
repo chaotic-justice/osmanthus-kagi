@@ -11,12 +11,12 @@ const localization = {
       label: 'English (English)',
     },
     {
-      code: 'de',
-      label: 'German (Deutsch)',
-    },
-    {
       code: 'ja',
       label: 'Japanese (日本語)',
+    },
+    {
+      code: 'zh',
+      label: 'Chinese (中文)',
     },
   ],
 }

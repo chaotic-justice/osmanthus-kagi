@@ -4,18 +4,26 @@ import { WorkingCollectionArchive } from '@/components/CollectionArchive'
 import { PageRange } from '@/components/PageRange'
 import { Pagination } from '@/components/Pagination'
 import configPromise from '@payload-config'
-import { getPayload } from 'payload'
+import { getPayload, type TypedLocale } from 'payload'
 import PageClient from './page.client'
 
 // export const dynamic = 'force-static'
-// export const revalidate = 600
+export const revalidate = 600
 
-export default async function Page() {
+type Args = {
+  params: Promise<{
+    locale: TypedLocale
+  }>
+}
+
+export default async function Page({ params }: Args) {
+  const { locale = 'en' } = await params
   const payload = await getPayload({ config: configPromise })
 
   const works = await payload.find({
     collection: 'works',
     depth: 1,
+    locale,
     limit: 12,
     overrideAccess: false,
     select: {

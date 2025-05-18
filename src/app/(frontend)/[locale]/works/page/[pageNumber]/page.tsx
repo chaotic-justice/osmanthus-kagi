@@ -4,7 +4,7 @@ import { CollectionArchive } from '@/components/CollectionArchive'
 import { PageRange } from '@/components/PageRange'
 import { Pagination } from '@/components/Pagination'
 import configPromise from '@payload-config'
-import { getPayload } from 'payload'
+import { getPayload, type TypedLocale } from 'payload'
 import React from 'react'
 import PageClient from './page.client'
 import { notFound } from 'next/navigation'
@@ -15,6 +15,7 @@ type Args = {
   params: Promise<{
     pageNumber: string
   }>
+  locale: TypedLocale
 }
 
 export default async function Page({ params: paramsPromise }: Args) {
