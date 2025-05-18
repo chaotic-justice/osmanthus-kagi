@@ -14,8 +14,8 @@ export const revalidate = 600
 type Args = {
   params: Promise<{
     pageNumber: string
+    // locale: TypedLocale
   }>
-  locale: TypedLocale
 }
 
 export default async function Page({ params: paramsPromise }: Args) {
