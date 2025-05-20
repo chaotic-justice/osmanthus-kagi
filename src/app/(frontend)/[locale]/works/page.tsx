@@ -7,7 +7,6 @@ import configPromise from '@payload-config'
 import { getPayload, type TypedLocale } from 'payload'
 import PageClient from './page.client'
 
-// export const dynamic = 'force-static'
 export const dynamic = 'force-dynamic'
 // export const revalidate = 600
 
