@@ -8,6 +8,7 @@ export default function PublicNavigationLocaleSwitcher() {
     <div className="flex gap-3 py-5">
       <LocaleLink locale="en" />
       <LocaleLink locale="ja" />
+      <LocaleLink locale="zh" />
     </div>
   )
 }
@@ -15,11 +16,9 @@ export default function PublicNavigationLocaleSwitcher() {
 function LocaleLink({ locale }: { locale: Locale }) {
   const pathname = usePathname()
   const isActive = useLocale() === locale
-  const cleanPathname = pathname.replace(/^\/(ja|en)(\/.*)?$/, '$2').replace(/^(\/)?/, '/')
-  console.log('pathname', pathname, cleanPathname)
 
   return (
-    <Link className={isActive ? 'underline' : undefined} href={cleanPathname} locale={locale}>
+    <Link className={isActive ? 'underline' : undefined} href={pathname} locale={locale}>
       {locale.toUpperCase()}
     </Link>
   )

@@ -7,8 +7,8 @@ import { Link, usePathname } from '@/i18n/navigation'
 import type { Header } from '@/payload-types'
 
 import { Logo } from '@/components/Logo/Logo'
-import { LocaleSwitcher } from './LocaleSwitcher'
 import { HeaderNav } from './Nav'
+import PublicNavigationLocaleSwitcher from './PublicNavigationLocaleSwitcher'
 
 interface HeaderClientProps {
   data: Header
@@ -36,9 +36,8 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
         <Link href="/">
           <Logo loading="eager" priority="high" className="invert dark:invert-0" />
         </Link>
-        <LocaleSwitcher />
-        {/* <PublicNavigationLocaleSwitcher /> */}
         <HeaderNav data={data} />
+        <PublicNavigationLocaleSwitcher />
       </div>
     </header>
   )

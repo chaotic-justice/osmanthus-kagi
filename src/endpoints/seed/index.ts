@@ -286,7 +286,7 @@ export const seed = async ({
       collection: 'pages',
       locale: 'en',
       depth: 0,
-      data: home({ heroImage: imageHomeDoc, metaImage: image2Doc }),
+      data: home({ heroImage: image2Doc, metaImage: image2Doc }),
     }),
     payload.create({
       collection: 'pages',
@@ -309,6 +309,13 @@ export const seed = async ({
               type: 'custom',
               label: 'Posts',
               url: '/posts',
+            },
+          },
+          {
+            link: {
+              type: 'custom',
+              label: 'Works',
+              url: '/works',
             },
           },
           {

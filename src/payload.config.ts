@@ -33,7 +33,7 @@ export default buildConfig({
       process.env.NEXT_PUBLIC_ENABLE_AUTOLOGIN === 'true'
         ? {
             email: 'octopus@lichess.org',
-            password: 'Knightw00d@',
+            password: process.env.NEXT_PUBLIC_DUMMY_PASSWORD,
             prefillOnly: true,
           }
         : false,
