@@ -39,7 +39,7 @@ export const Card: React.FC<{
       ref={card.ref}
     >
       <div className="relative w-full ">
-        {!metaImage && <div className="">No image</div>}
+        {/* {!metaImage && <div className="">No image</div>} */}
         {metaImage && typeof metaImage !== 'string' && <Media resource={metaImage} size="33vw" />}
       </div>
       <div className="p-4">
@@ -106,7 +106,7 @@ export const WorkingCard: React.FC<{
   return (
     <article className={cn('overflow-hidden hover:cursor-pointer', className)} ref={card.ref}>
       <div className="relative w-full ">
-        {!metaImage && <div className="">No image</div>}
+        {/* {!metaImage && <div className="">No image</div>} */}
         {metaImage && typeof metaImage !== 'string' && <Media resource={metaImage} size="33vw" />}
       </div>
       <div className="p-4">
