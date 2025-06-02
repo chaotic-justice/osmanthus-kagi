@@ -90,7 +90,7 @@ export const plugins: Plugin[] = [
   s3Storage({
     collections: {
       media: {
-        prefix: 'oolong-tea',
+        prefix: process.env.R2_PREFIX,
       },
     },
     bucket: process.env.S3_BUCKET,
