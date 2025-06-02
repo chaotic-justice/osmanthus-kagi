@@ -2,7 +2,7 @@ import type { CollectionSlug, GlobalSlug, Payload, PayloadRequest } from 'payloa
 
 const collections: CollectionSlug[] = [
   'categories',
-  // 'media',
+  'media',
   'pages',
   'posts',
   'works',
