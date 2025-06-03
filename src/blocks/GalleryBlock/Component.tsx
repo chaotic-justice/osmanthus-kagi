@@ -47,7 +47,8 @@ export const GalleryBlock: React.FC<Props> = (props) => {
 
   return (
     <div className="mx-auto max-w-fit">
-      <Carousel plugins={[plugin.current]} setApi={setApi} className="w-full max-w-fit">
+      {/* <Carousel plugins={[plugin.current]} setApi={setApi} className="w-full max-w-fit"> */}
+      <Carousel setApi={setApi} className="w-full max-w-fit">
         <CarouselContent>
           {gallery.map((media, index) => (
             <CarouselItem key={index}>
