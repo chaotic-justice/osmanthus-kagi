@@ -95,6 +95,18 @@ export const plugins: Plugin[] = [
     },
     bucket: process.env.S3_BUCKET,
     config: {
+      requestHandler: {
+        httpAgent: {
+          maxSockets: 300,
+          keepAlive: true,
+        },
+        httpsAgent: {
+          maxSockets: 300,
+          keepAlive: true,
+        },
+        connectionTimeout: 5 * 1000,
+        requestTimeout: 5 * 1000,
+      },
       endpoint: process.env.S3_ENDPOINT,
       credentials: {
         accessKeyId: process.env.S3_ACCESS_KEY_ID,
