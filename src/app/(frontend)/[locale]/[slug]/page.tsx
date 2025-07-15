@@ -100,7 +100,6 @@ const queryPageBySlug = cache(async ({ slug, locale }: { slug: string; locale: T
     draft,
     limit: 1,
     locale,
-    depth: 2,
     pagination: false,
     overrideAccess: draft,
     where: {
